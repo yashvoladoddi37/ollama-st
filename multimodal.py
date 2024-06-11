@@ -74,7 +74,7 @@ def main():
         else:
             if missing_models:
                 model_to_download = st.selectbox(
-                    ":green[**📥 DOWNLOAD MODEL**]", list(missing_models)
+                    ":green[**📥Download the model**]", list(missing_models)
                 )
                 if st.button(f":green[Download **_{model_to_download}_**]"):
                     try:
@@ -89,7 +89,7 @@ def main():
                         st.error(
                             f"""Failed to download model: {
                                 model_to_download}. Error: {str(e)}""",
-                            icon="😳",
+                            icon="😞",
                         )
 
             selected_model = st.selectbox(":red[**⛔️ DELETE MODEL**]", available_models)
@@ -102,7 +102,7 @@ def main():
                     st.error(
                         f"""Failed to delete model: {
                             selected_model}. Error: {str(e)}""",
-                        icon="😳",
+                        icon="😞",
                     )
 
     if not available_models:
@@ -137,7 +137,7 @@ def main():
 
         if uploaded_file is not None:
             for message in st.session_state.chats:
-                avatar = "🌋" if message["role"] == "assistant" else "🫠"
+                avatar = "🌋" if message["role"] == "assistant" else "🙋‍♂️"
                 with container2.chat_message(message["role"], avatar=avatar):
                     if message["role"] == "user":
                         st.markdown(message["content"])
@@ -148,7 +148,7 @@ def main():
                 "Question about the image...", key="chat_input"
             ):
                 st.session_state.chats.append({"role": "user", "content": user_input})
-                container2.chat_message("user", avatar="🫠").markdown(user_input)
+                container2.chat_message("user", avatar="🙋‍♂️").markdown(user_input)
 
                 image_base64 = img_to_base64(image)
                 API_URL = "http://localhost:11434/api/generate"
@@ -182,13 +182,13 @@ def main():
                             st.error(
                                 f"""No response received from {
                                     selected_model}.""",
-                                icon="😳",
+                                icon="😞",
                             )
                     else:
                         st.error(
                             f"""Failed to get a response from {
                                 selected_model}.""",
-                            icon="😳",
+                            icon="😞",
                         )
 
                 st.session_state.chats.append(
