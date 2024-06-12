@@ -29,7 +29,7 @@ def main():
     """
 
     page_icon("💬")
-    st.subheader("Ollama Arena", divider="blue", anchor=False)
+    st.subheader("Yashpreet's Ollama Arena", divider="blue", anchor=False)
 
     client = OpenAI(
         base_url="http://localhost:11434/v1",
@@ -47,7 +47,7 @@ def main():
     else:
         st.warning("You have not pulled any model from Ollama yet!", icon="❌")
         if st.button("Go to the settings page to download/delete a model"):
-            st.page_switch("settings.py")
+            st.switch_page("pages/settings.py")
 
     message_container = st.container(height=500, border=True)
 
