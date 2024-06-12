@@ -145,7 +145,7 @@ def main():
                         st.markdown(message["content"])
 
             if user_input := st.chat_input(
-                "Question about the image...", key="chat_input"
+                "A question about the image...", key="chat_input"
             ):
                 st.session_state.chats.append({"role": "user", "content": user_input})
                 container2.chat_message("user", avatar="🙋‍♂️").markdown(user_input)
